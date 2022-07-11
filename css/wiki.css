@@ -102,6 +102,10 @@ body {
   bottom: 3%;
 }
 
+.footer.hidden {
+  visibility: hidden;
+}
+
 .footer span:nth-child(2) {
   cursor: pointer;
 }
