@@ -91,6 +91,21 @@ body {
   overflow-wrap: break-word;
 }
 
+.footer {
+  position: absolute;
+  color: #444;
+  font-size: 14px;
+  display: flex;
+  gap: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 3%;
+}
+
+.footer span:nth-child(2) {
+  cursor: pointer;
+}
+
 .sk-chase {
   width: 40px;
   height: 40px;
