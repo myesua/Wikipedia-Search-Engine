@@ -1,4 +1,4 @@
-
+// Take user input as string and make it a parameter for wikipediaSearch
 
 const handleSubmit = async(e) => {
   e.preventDefault();
@@ -18,6 +18,10 @@ const handleSubmit = async(e) => {
  
   try {
    const results = await searchWikipedia(searchQuery);
+   if (results.query.searchinfo.totalhits === 0) {
+     searchResults.innerHTML = "No results were found! Please try different keywords."
+     footer.classList.add('hidden');
+   }
    displayResults(results);
   } catch(error) {
    console.log(error);
@@ -28,7 +32,7 @@ const handleSubmit = async(e) => {
   
  }
 
-
+// Get `search query` from submit function, append it to the endpoint, fetch and return result
 const searchWikipedia = async(searchQuery) => {
   const endpoint = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${searchQuery}`;
 
@@ -41,6 +45,7 @@ const searchWikipedia = async(searchQuery) => {
   return data;
 }
 
+// Display result to DOM
 const displayResults = (results) => {
   // Reference the element to display result
   const searchResults = document.querySelector('#search-results-js');
