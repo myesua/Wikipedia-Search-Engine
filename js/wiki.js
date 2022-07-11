@@ -12,7 +12,9 @@ const handleSubmit = async(e) => {
 
   // Remove hidden class from spinner
   const spinner = document.querySelector('#spinner-js');
+  const footer = document.querySelector('#footer-js');
   spinner.classList.remove('hidden');
+  footer.classList.remove('hidden');
  
   try {
    const results = await searchWikipedia(searchQuery);
